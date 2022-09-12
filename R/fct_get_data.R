@@ -26,12 +26,17 @@ get_summarised_retention_data = function() {
 #' Requires environment variable RETENTION_VERSION
 #' defined as either "private" or "public".
 get_retention_data = function() {
-  retention_version = get_retention_version()
-  pin_user = get_pin_user()
-  board_rsc = pins::board_rsconnect()
-  retention_path = glue::glue("{pin_user}/{retention_version}_retention")
-  retention_data = pins::pin_read(board_rsc, retention_path)
+  retention_data = readr::read_csv("inst/app/fake_data/tabs_3_and_4.csv",
+                                    show_col_types = FALSE,
+                                    progress = FALSE)
   return(retention_data)
+
+  # retention_version = get_retention_version()
+  # pin_user = get_pin_user()
+  # board_rsc = pins::board_rsconnect()
+  # retention_path = glue::glue("{pin_user}/{retention_version}_retention")
+  # retention_data = pins::pin_read(board_rsc, retention_path)
+  # return(retention_data)
 }
 
 #' Get user for pinned data
@@ -55,6 +60,7 @@ get_pin_user = function() {
 #' the retention data.
 get_retention_version = function() {
   retention_version = Sys.getenv("RETENTION_VERSION")
+  retention_version = "public"
   valid_versions = c("public", "private")
   if (!(retention_version %in% valid_versions)) {
     cli::cli_alert_warning("Ensure you have an environment variable called RETENTION_VERSION")
