@@ -1,4 +1,4 @@
 library(testthat)
-library(retentionsApp)
+library(shinyRetention)
 
-test_check("retentionsApp")
+test_check("shinyRetention")

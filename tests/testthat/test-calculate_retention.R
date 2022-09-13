@@ -1,6 +1,6 @@
 testthat::test_that("retention calculation works", {
   file_path = system.file("app/fake_data/tabs_3_and_4.csv",
-                          package = "retentionsApp",
+                          package = "shinyRetention",
                           mustWork = TRUE)
   raw_retention = readr::read_csv(file_path, show_col_types = FALSE)
   filter_by = c("gender", "ipeds_race_ethnicity")
@@ -16,7 +16,7 @@ testthat::test_that("retention calculation works", {
   group = "college"
   agency = "third week"
   tab = 3
-  retention_rates = retentionsApp:::calculate_retention(raw_retention, # nolint
+  retention_rates = shinyRetention:::calculate_retention(raw_retention, # nolint
                                                        filter_by,
                                                        filter_values,
                                                        metric,

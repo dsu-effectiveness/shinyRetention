@@ -1,1 +1,1 @@
-# retentionsApp (development version)
+# shinyRetention (development version)

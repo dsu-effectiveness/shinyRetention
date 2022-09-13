@@ -1,4 +1,4 @@
-## retentionsApp
+## shinyRetention
 
 An R package, created with the {golem} paradigm, to house the retentions data exploration application.
 
