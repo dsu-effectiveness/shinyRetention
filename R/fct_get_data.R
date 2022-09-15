@@ -13,7 +13,10 @@ get_goal_data = function() {
 #'
 #' Reads summarised retention data from temporary CSV file.
 #' To be replaced by call to database.
-get_summarised_retention_data = function() {
+get_summarised_retention_data = function(method="from_sql") {
+  # TODO: update this to do summarization from SQL data pull
+  #retention_df <- get_retention_data(method)
+
   summarised_data = readr::read_csv("inst/app/fake_data/tab_1_df.csv",
                                     show_col_types = FALSE,
                                     progress = FALSE)
@@ -25,18 +28,36 @@ get_summarised_retention_data = function() {
 #' Reads retention data from RStudio Connect pin.
 #' Requires environment variable RETENTION_VERSION
 #' defined as either "private" or "public".
-get_retention_data = function() {
-  retention_data = readr::read_csv("inst/app/fake_data/tabs_3_and_4.csv",
-                                    show_col_types = FALSE,
-                                    progress = FALSE)
-  return(retention_data)
+get_retention_data = function(method="from_sql") {
 
-  # retention_version = get_retention_version()
-  # pin_user = get_pin_user()
-  # board_rsc = pins::board_rsconnect()
-  # retention_path = glue::glue("{pin_user}/{retention_version}_retention")
-  # retention_data = pins::pin_read(board_rsc, retention_path)
-  # return(retention_data)
+  if (method == "from_sql") {
+    ## 1st option
+    retention_data_from_sql <- utHelpR::get_data_from_sql_file("retention.sql", dsn="edify", context="shiny") %>%
+      dplyr::mutate( cohort = as.numeric(cohort) )
+    retention_data <- retention_data_from_sql
+  }
+  else if (method == "from_csv") {
+    ## 2nd option
+    retention_data_from_csv <- readr::read_csv("inst/app/fake_data/tabs_3_and_4.csv",
+                                      show_col_types = FALSE,
+                                      progress = FALSE)
+    retention_data <- retention_data_from_csv
+
+  }
+  else if (method == "from_pin") {
+    ## 3rd option
+    retention_version <- get_retention_version()
+    pin_user <- get_pin_user()
+    board_rsc <- pins::board_rsconnect()
+    retention_path <- glue::glue("{pin_user}/{retention_version}_retention")
+    retention_data_from_pin <- pins::pin_read(board_rsc, retention_path)
+    retention_data <- retention_data_from_pin
+  }
+  else {
+    stop("Method for gathering retention data is not defined.")
+  }
+
+  return(retention_data)
 }
 
 #' Get user for pinned data

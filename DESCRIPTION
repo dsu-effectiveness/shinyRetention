@@ -26,13 +26,15 @@ Imports:
     shinyWidgets,
     stringr,
     tidyr,
-    utVizSankey
+    utHelpR (>= 0.0.0.9000),
+    utVizSankey (>= 0.3.2)
 Suggests:
     rsconnect,
     shinytest2,
     testthat (>= 3.0.0)
-Remotes:
-    jumpingrivers/utVizSankey
+Remotes: 
+    dsu-effectiveness/utVizSankey,
+    dsu-effectiveness/utHelpR
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
