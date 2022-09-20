@@ -87,7 +87,6 @@ get_pin_user = function() {
 #' the retention data.
 get_retention_version = function() {
   retention_version = Sys.getenv("RETENTION_VERSION")
-  retention_version = "public"
   valid_versions = c("public", "private")
   if (!(retention_version %in% valid_versions)) {
     cli::cli_alert_warning("Ensure you have an environment variable called RETENTION_VERSION")

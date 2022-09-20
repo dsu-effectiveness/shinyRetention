@@ -22,21 +22,6 @@ SELECT    a.student_id,
           -- TODO: this is named strangely in accordance to what it is used for in the app
           'third week' AS metric
 
-          /*
-          a.cohort_code,
-          a.cohort_code_desc,
-          a.is_exclusion AS group_is_exclusion,
-          a.is_graduated AS group_is_graduated,
-          COALESCE(a.is_graduated_year_4, FALSE) AS group_is_graduated_year_4,
-          a.full_time_part_time_code AS group_effort,
-          a.cohort_degree_level_code AS group_cohort_degree_level_code,
-          a.cohort_desc AS group_cohort_desc,
-          b.gender_code,
-          d.major_desc AS group_major,
-          d.college_desc,
-          c.primary_degree_id
-           */
-
      FROM export.student_term_cohort a
 LEFT JOIN export.term a1
        ON a1.term_id = a.cohort_start_term_id
