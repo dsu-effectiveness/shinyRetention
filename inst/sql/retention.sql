@@ -1,6 +1,6 @@
 SELECT    a.student_id,
           a1.academic_year_code AS cohort,
-          TRUE AS fall_enrolled,
+          'All' AS population,
 
           -- METRICS
           COALESCE(a.is_returned_next_spring, FALSE) AS spring_returned,

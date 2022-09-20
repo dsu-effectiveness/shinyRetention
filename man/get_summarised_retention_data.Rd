@@ -4,7 +4,7 @@
 \alias{get_summarised_retention_data}
 \title{Get summarised retention data}
 \usage{
-get_summarised_retention_data(method = "from_sql")
+get_summarised_retention_data(retention_df)
 }
 \description{
 Reads summarised retention data from temporary CSV file.

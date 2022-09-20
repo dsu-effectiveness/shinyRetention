@@ -15,6 +15,7 @@ Imports:
     golem (>= 0.3.3),
     htmlwidgets,
     magrittr,
+    pins,
     plotly,
     purrr,
     reactable,
@@ -29,12 +30,11 @@ Imports:
     utHelpR (>= 0.0.0.9000),
     utVizSankey (>= 0.3.2)
 Suggests:
-    rsconnect,
     shinytest2,
     testthat (>= 3.0.0)
 Remotes: 
-    dsu-effectiveness/utVizSankey,
-    dsu-effectiveness/utHelpR
+    dsu-effectiveness/utHelpR,
+    dsu-effectiveness/utVizSankey
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true

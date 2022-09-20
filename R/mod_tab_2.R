@@ -197,7 +197,7 @@ group_choices = function() {
 #' Returns a list of Sankey steps that can be
 #' modified based on inputs
 sankey_options = function() {
-  basic_options = list("fall_enrolled",
+  basic_options = list("population",
                        "spring_returned",
                        "second_fall_returned",
                        "third_fall_returned",
