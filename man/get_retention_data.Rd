@@ -4,7 +4,7 @@
 \alias{get_retention_data}
 \title{Get retention data}
 \usage{
-get_retention_data()
+get_retention_data(method = "from_sql")
 }
 \description{
 Reads retention data from RStudio Connect pin.

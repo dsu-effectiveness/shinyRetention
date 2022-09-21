@@ -1,9 +1,9 @@
-Package: retentionsApp
-Title: Retentions data application
+Package: shinyRetention
+Title: Retention Exploration
 Version: 1.0.0
 Authors@R:
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
-Description: Retentions data exploration app-as-a-package.
+Description: Retention data exploration app-as-a-package.
 License: file LICENSE
 Imports:
     bslib,
@@ -27,13 +27,14 @@ Imports:
     shinyWidgets,
     stringr,
     tidyr,
-    utVizSankey
+    utHelpR (>= 0.0.0.9000),
+    utVizSankey (>= 0.3.2)
 Suggests:
-    rsconnect,
     shinytest2,
     testthat (>= 3.0.0)
-Remotes:
-    jumpingrivers/utVizSankey
+Remotes: 
+    dsu-effectiveness/utHelpR,
+    dsu-effectiveness/utVizSankey
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true

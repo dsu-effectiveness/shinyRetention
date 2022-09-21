@@ -13,3 +13,5 @@ docs
 _\.new\.png$
 ^app\.R$
 ^rsconnect$
+
+dev/

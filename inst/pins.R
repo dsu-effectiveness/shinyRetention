@@ -2,7 +2,7 @@
 # 2 pins: one for private use, one for public use
 
 file_path = system.file("app/fake_data/tabs_3_and_4.csv",
-                        package = "retentionsApp",
+                        package = "shinyRetention",
                         mustWork = TRUE)
 
 raw_retention = read_csv(file_path)

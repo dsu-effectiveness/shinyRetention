@@ -117,6 +117,7 @@ mod_tab_2_server = function(id, raw_retention) {
         steps = basic_options
       }
       steps[[1]] = c(steps[[1]], input$first_level, input$second_level, input$third_level)
+      print(steps)
       return(steps)
     })
 
@@ -203,9 +204,12 @@ group_choices = function() {
 #' Returns a list of Sankey steps that can be
 #' modified based on inputs
 sankey_options = function() {
-  basic_options = list("fall_returned",
+  basic_options = list("population",
                        "spring_returned",
                        "second_fall_returned",
-                       "third_fall_returned")
+                       "third_fall_returned",
+                       "fourth_fall_returned",
+                       "fifth_fall_returned",
+                       "sixth_fall_returned")
   return(basic_options)
 }

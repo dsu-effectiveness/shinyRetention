@@ -19,13 +19,14 @@ mod_tab_1_ui = function(id) {
                         border-radius: .25rem;
                         padding-left: 1rem;
 	                      box-shadow: none;
+                        position: relative;
                       }
 
                       .fa-percent {
-                        font-size: 70px;
+                        font-size: 66px;
                         position: absolute;
-                        top: 20%;
-                        right: 15%;
+                        top: 19%;
+                        right: 72%;
                         opacity: 0.2
                       }"),
     shiny::fluidRow(

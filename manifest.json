@@ -4291,7 +4291,7 @@
     "man/retention_line_chart.Rd": {
       "checksum": "66223bd0de74e939ad761456755a6329"
     },
-    "man/retentionsApp-package.Rd": {
+    "man/shinyRetention-package.Rd": {
       "checksum": "a89ebd8ee00d45c177b875bdb62b83f1"
     },
     "man/run_app.Rd": {
