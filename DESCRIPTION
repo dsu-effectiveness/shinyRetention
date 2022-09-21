@@ -1,6 +1,6 @@
 Package: shinyRetention
 Title: Retention Exploration
-Version: 0.0.0.9008
+Version: 1.0.0
 Authors@R:
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Retention data exploration app-as-a-package.
