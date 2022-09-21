@@ -14,13 +14,21 @@ get_goal_data = function() {
 #' Reads summarised retention data from temporary CSV file.
 #' To be replaced by call to database.
 get_summarised_retention_data = function(retention_df) {
-  input_metric <- 'spring_returned'
+
+  named_metrics <- c("Fall to Spring"='spring_returned',
+                     "Fall to Fall"="second_fall_returned",
+                     "Third Year"="third_fall_returned",
+                     "Fourth Year"="fourth_fall_returned")
   input_group <- 'population'
-  summarized_retention_df <- retention_df %>%
-    calculate_headcount(input_metric, input_group) %>%
-    calculate_return_rate(input_metric) %>%
-    dplyr::mutate(metric='Fall to Spring',
+  summarized_retention_df <- data.frame(matrix(nrow=0, ncol=7))
+  for ( input_metric_name in names(named_metrics) ) {
+   rows <- retention_df %>%
+    calculate_headcount(named_metrics[[input_metric_name]], input_group) %>%
+    calculate_return_rate(named_metrics[[input_metric_name]]) %>%
+    dplyr::mutate(metric=input_metric_name,
                   year=cohort)
+   summarized_retention_df <- rbind(summarized_retention_df, rows)
+  }
 
   #summarised_data = readr::read_csv("inst/app/fake_data/tab_1_df.csv",
   #                                  show_col_types = FALSE,
